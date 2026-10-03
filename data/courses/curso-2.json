@@ -1,0 +1,17 @@
+{
+  "id": "curso-2",
+  "slug": "curso-2",
+  "title": "Auxiliar Administrativo de la Administración General (C2)",
+  "subtitle": "Preparación Integral: Actividad Administrativa y Ofimática",
+  "description": "Preparación focalizada en atención ciudadana, registro de documentos, archivo y psicotécnicos. Procesado mediante NotebookLM para un aprendizaje acelerado.",
+  "category": "Administración del Estado",
+  "status": "coming_soon",
+  "bannerBadge": "Próximamente - Convocatoria 2026",
+  "iconName": "Briefcase",
+  "totalTopics": 18,
+  "totalQuestions": 250,
+  "estimatedHours": 60,
+  "targetExam": "Oposiciones AGE C2",
+  "modules": [],
+  "questions": []
+}

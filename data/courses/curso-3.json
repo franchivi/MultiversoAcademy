@@ -1,0 +1,17 @@
+{
+  "id": "curso-3",
+  "slug": "celador-sas",
+  "title": "Celador/a — Servicio Andaluz de Salud (SAS)",
+  "subtitle": "Temario Específico y Común · Oferta de Empleo Público SAS",
+  "description": "Preparación técnica para celadores del SAS: traslado de pacientes, movilización, urgencias hospitalarias, quirófanos y estatuto marco.",
+  "category": "Sanidad Pública (SAS)",
+  "status": "coming_soon",
+  "bannerBadge": "Próximamente - OEP SAS 2026",
+  "iconName": "Stethoscope",
+  "totalTopics": 17,
+  "totalQuestions": 180,
+  "estimatedHours": 80,
+  "targetExam": "Servicio Andaluz de Salud (Personal Estatutario)",
+  "modules": [],
+  "questions": []
+}

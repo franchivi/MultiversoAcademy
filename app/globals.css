@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sora: 'Sora', system-ui, sans-serif;
+    --font-inter: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Multiverso Design System v3 Tokens */
+    --amber: #d97706;
+    --amber-soft: rgba(217, 119, 6, 0.12);
+    --violet: #7c3aed;
+    --cyan: #0284c7;
+    --grad: linear-gradient(96deg, #d97706, #ea580c);
+    --grad-2: linear-gradient(96deg, #7c3aed, #0284c7);
+
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 39% 11%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 38 92% 50%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 232 28% 4%; /* #090a0f Multiverso Deep Cosmic */
+    --foreground: 213 31% 96%;
+    --card: 231 28% 8%; /* #0f111a Multiverso Dark Card */
+    --card-foreground: 213 31% 96%;
+    --popover: 231 28% 8%;
+    --popover-foreground: 213 31% 96%;
+    --primary: 38 92% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 224 25% 12%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 224 25% 12%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 224 25% 14%;
+    --input: 224 25% 14%;
+    --ring: 38 92% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-inter);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sora);
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+  .mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Ambient cosmic nebulae from Multiverso IA */
+.nebula {
+  position: fixed;
+  z-index: -2;
+  border-radius: 50%;
+  filter: blur(140px);
+  pointer-events: none;
+}
+.nebula-1 {
+  width: 600px;
+  height: 600px;
+  background: #e9d5ff;
+  top: -150px;
+  right: -100px;
+  opacity: 0.35;
+}
+.dark .nebula-1 {
+  background: #7c3aed;
+  opacity: 0.15;
+}
+.nebula-2 {
+  width: 520px;
+  height: 520px;
+  background: #ffedd5;
+  bottom: -150px;
+  left: -100px;
+  opacity: 0.45;
+}
+.dark .nebula-2 {
+  background: #d97706;
+  opacity: 0.12;
+}
+
+/* Subtle background logo watermark from Multiverso IA */
+.bg-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: min(80vw, 700px);
+  height: min(80vh, 700px);
+  transform: translate(-50%, -50%);
+  background: url('/images/logo.png') center/contain no-repeat;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: -1;
+  filter: drop-shadow(0 0 60px rgba(124, 58, 237, 0.1));
+}
+.dark .bg-watermark {
+  opacity: 0.04;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(217, 119, 6, 0.7);
+}
+
+/* Study text reading enhancements */
+.study-prose p {
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+  font-size: 1.0625rem;
+}
+
+.study-prose strong {
+  color: #d97706;
+  font-weight: 600;
+}
+
+.dark .study-prose strong {
+  color: #fbbf24;
+}
