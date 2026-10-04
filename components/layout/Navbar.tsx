@@ -79,15 +79,18 @@ export function Navbar() {
           className="flex items-center gap-2.5 sm:gap-3.5 group shrink-0"
           onClick={() => setMobileMenuOpen(false)}
         >
-          <div className="relative w-10 h-10 sm:w-14 sm:h-14 shrink-0 flex items-center justify-center">
-            <Image
-              src={getAssetPath("/images/logo.png")}
-              alt="Multiverso Academy"
-              fill
-              className="object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-[0_0_12px_rgba(217,119,6,0.35)]"
-              sizes="(max-width: 640px) 40px, 56px"
-              priority
-            />
+          <div className="relative w-12 h-12 sm:w-14 sm:h-14 shrink-0 flex items-center justify-center">
+            {/* Overflowing container: logo is visually much larger without expanding the h-16 navbar */}
+            <div className="absolute -inset-2 sm:-inset-4 z-20 pointer-events-none">
+              <Image
+                src={getAssetPath("/images/logo.png")}
+                alt="Multiverso Academy"
+                fill
+                className="object-contain scale-110 sm:scale-125 group-hover:scale-135 transition-transform duration-300 drop-shadow-[0_0_20px_rgba(217,119,6,0.55)]"
+                sizes="(max-width: 640px) 68px, 100px"
+                priority
+              />
+            </div>
           </div>
           <div>
             <div className="flex items-center gap-1 font-display font-extrabold text-base sm:text-lg md:text-xl tracking-tight leading-tight">
