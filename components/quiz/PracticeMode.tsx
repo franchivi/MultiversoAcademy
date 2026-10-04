@@ -12,8 +12,8 @@ import {
   Scale, 
   Sparkles, 
   ChevronRight, 
-  ChevronLeft,
-  RotateCcw
+  ChevronLeft, 
+  RotateCcw 
 } from "lucide-react";
 
 interface PracticeModeProps {
@@ -72,42 +72,42 @@ export function PracticeMode({ questions, onFinish }: PracticeModeProps) {
   const isCorrect = currentSelection === currentQuestion.correctOptionId;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5 sm:space-y-6">
       
       {/* Question Header & Stepper */}
-      <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
-        <div className="flex items-center gap-3">
-          <Badge variant="indigo" className="text-xs px-2.5 py-1">
+      <div className="flex flex-wrap items-center justify-between gap-2.5 p-3.5 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
+        <div className="flex items-center gap-2.5">
+          <Badge variant="indigo" className="text-xs px-2.5 py-0.5">
             Modo Práctica
           </Badge>
-          <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+          <span className="text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">
             Pregunta {currentIndex + 1} de {total}
           </span>
         </div>
 
         <div className="flex items-center gap-2">
           {currentQuestion.topicTitle && (
-            <Badge variant="secondary" className="text-xs max-w-xs truncate hidden sm:inline-flex">
+            <Badge variant="secondary" className="text-[11px] max-w-[160px] sm:max-w-xs truncate hidden xs:inline-flex">
               {currentQuestion.topicTitle}
             </Badge>
           )}
           {currentQuestion.articleReference && (
-            <Badge variant="outline" className="gap-1 text-xs">
+            <Badge variant="outline" className="gap-1 text-[11px]">
               <Scale className="w-3 h-3 text-slate-400" />
-              {currentQuestion.articleReference}
+              <span className="truncate max-w-[140px]">{currentQuestion.articleReference}</span>
             </Badge>
           )}
         </div>
       </div>
 
       {/* Question Card */}
-      <div className="p-6 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-6">
-        <h3 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-slate-100 leading-relaxed">
+      <div className="p-4 sm:p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm space-y-5 sm:space-y-6">
+        <h3 className="text-base sm:text-xl font-bold text-slate-900 dark:text-slate-100 leading-relaxed">
           {currentQuestion.question}
         </h3>
 
         {/* Options List */}
-        <div className="space-y-3">
+        <div className="space-y-2.5 sm:space-y-3">
           {currentQuestion.options.map((option) => {
             const isChosen = currentSelection === option.id;
             const isTheCorrectOne = option.id === currentQuestion.correctOptionId;
@@ -137,10 +137,10 @@ export function PracticeMode({ questions, onFinish }: PracticeModeProps) {
                 key={option.id}
                 onClick={() => handleSelectOption(option.id)}
                 disabled={isRevealed}
-                className={`w-full text-left p-4 rounded-xl border transition-all duration-150 flex items-start gap-3.5 ${optionStyle}`}
+                className={`w-full text-left p-3.5 sm:p-4 rounded-xl border transition-all duration-150 flex items-start gap-3 ${optionStyle}`}
               >
                 <div
-                  className={`w-7 h-7 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 ${
+                  className={`w-6 h-6 sm:w-7 sm:h-7 rounded-lg flex items-center justify-center font-bold text-xs shrink-0 mt-0.5 ${
                     isRevealed && isTheCorrectOne
                       ? "bg-emerald-600 text-white"
                       : isRevealed && isChosen && !isTheCorrectOne
@@ -152,7 +152,7 @@ export function PracticeMode({ questions, onFinish }: PracticeModeProps) {
                 >
                   {option.id}
                 </div>
-                <div className="flex-1 text-sm sm:text-base leading-relaxed">
+                <div className="flex-1 text-xs sm:text-base leading-relaxed">
                   {option.text}
                 </div>
                 {isRevealed && isTheCorrectOne && (
@@ -173,7 +173,7 @@ export function PracticeMode({ questions, onFinish }: PracticeModeProps) {
               variant="glow"
               disabled={!currentSelection}
               onClick={handleCheckAnswer}
-              className="gap-2"
+              className="w-full sm:w-auto gap-2"
             >
               <Sparkles className="w-4 h-4" />
               <span>Comprobar Respuesta</span>
@@ -183,9 +183,9 @@ export function PracticeMode({ questions, onFinish }: PracticeModeProps) {
 
         {/* Feedback Section (Shown immediately after checking) */}
         {isRevealed && (
-          <div className="space-y-4 pt-4 border-t border-slate-200 dark:border-slate-800 animate-in fade-in duration-300">
+          <div className="space-y-3 sm:space-y-4 pt-4 border-t border-slate-200 dark:border-slate-800 animate-in fade-in duration-300">
             <div
-              className={`p-4 rounded-xl border flex items-start gap-3 ${
+              className={`p-3.5 sm:p-4 rounded-xl border flex items-start gap-3 ${
                 isCorrect
                   ? "bg-emerald-50/80 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200"
                   : "bg-rose-50/80 dark:bg-rose-950/40 border-rose-300 dark:border-rose-800 text-rose-900 dark:text-rose-200"
@@ -197,7 +197,7 @@ export function PracticeMode({ questions, onFinish }: PracticeModeProps) {
                 <XCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
               )}
               <div>
-                <p className="font-bold text-sm">
+                <p className="font-bold text-xs sm:text-sm">
                   {isCorrect ? "¡Excelente! Respuesta Correcta" : `Incorrecto. La opción correcta es la ${currentQuestion.correctOptionId}`}
                 </p>
                 <p className="text-xs mt-1 text-slate-600 dark:text-slate-300 leading-relaxed">
@@ -208,7 +208,7 @@ export function PracticeMode({ questions, onFinish }: PracticeModeProps) {
 
             {/* Trap Warning Insight */}
             {currentQuestion.trapInsight && (
-              <div className="p-4 rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/60 dark:bg-amber-950/30 text-xs sm:text-sm text-amber-900 dark:text-amber-200 flex items-start gap-3">
+              <div className="p-3.5 sm:p-4 rounded-xl border border-amber-200 dark:border-amber-900/60 bg-amber-50/60 dark:bg-amber-950/30 text-xs sm:text-sm text-amber-900 dark:text-amber-200 flex items-start gap-3">
                 <AlertOctagon className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold block text-amber-950 dark:text-amber-100">
@@ -224,35 +224,35 @@ export function PracticeMode({ questions, onFinish }: PracticeModeProps) {
       </div>
 
       {/* Stepper Navigation */}
-      <div className="flex items-center justify-between gap-4">
+      <div className="flex items-center justify-between gap-2">
         <Button
           variant="outline"
           size="sm"
           onClick={handlePrev}
           disabled={currentIndex === 0}
-          className="gap-1.5"
+          className="gap-1 px-3 text-xs"
         >
           <ChevronLeft className="w-4 h-4" />
-          <span>Anterior</span>
+          <span className="hidden xs:inline">Anterior</span>
         </Button>
 
         <Button
           variant="ghost"
           size="sm"
           onClick={handleReset}
-          className="text-xs text-slate-500 gap-1.5"
+          className="text-xs text-slate-500 gap-1.5 px-2"
         >
           <RotateCcw className="w-3.5 h-3.5" />
-          <span>Reiniciar Test</span>
+          <span className="hidden sm:inline">Reiniciar Test</span>
         </Button>
 
         <Button
           variant="default"
           size="sm"
           onClick={handleNext}
-          className="gap-1.5"
+          className="gap-1 px-3 text-xs"
         >
-          <span>{isLast ? "Finalizar Repaso" : "Siguiente"}</span>
+          <span>{isLast ? "Finalizar" : "Siguiente"}</span>
           <ChevronRight className="w-4 h-4" />
         </Button>
       </div>

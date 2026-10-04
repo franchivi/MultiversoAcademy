@@ -163,3 +163,19 @@
 .dark .study-prose strong {
   color: #fbbf24;
 }
+
+/* Mobile utilities */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mobile tap target and touch smoothness */
+@media (max-width: 640px) {
+  button, a {
+    touch-action: manipulation;
+  }
+}
