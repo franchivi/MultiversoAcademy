@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Sparkles, ShieldCheck, Heart, ArrowUpRight } from "lucide-react";
+import { getAssetPath } from "@/lib/utils";
 
 export function Footer() {
   return (
@@ -11,7 +12,7 @@ export function Footer() {
         <div className="flex items-center gap-3">
           <div className="relative w-8 h-8 shrink-0">
             <Image
-              src="/images/logo.png"
+              src={getAssetPath("/images/logo.png")}
               alt="Multiverso Academy"
               fill
               className="object-contain"

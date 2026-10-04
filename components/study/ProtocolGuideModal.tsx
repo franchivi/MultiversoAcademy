@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { FileImage, X, Maximize2, Sparkles, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getAssetPath } from "@/lib/utils";
 
 export function ProtocolGuideModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +47,7 @@ export function ProtocolGuideModal() {
             <div className="flex-1 overflow-auto p-2 sm:p-4 flex items-center justify-center bg-slate-950/40">
               <div className="relative w-full h-[55vh] sm:h-[65vh]">
                 <Image
-                  src="/images/guia_protocolos_cuidador.png"
+                  src={getAssetPath("/images/guia_protocolos_cuidador.png")}
                   alt="Guía de Protocolos del Cuidador Sociosanitario - Diputación de Córdoba"
                   fill
                   className="object-contain rounded-lg"
@@ -61,7 +62,7 @@ export function ProtocolGuideModal() {
                 // Síntesis asistencial: SVB, OVACE, Disfagia, UPP y EPIs
               </span>
               <a
-                href="/images/guia_protocolos_cuidador.png"
+                href={getAssetPath("/images/guia_protocolos_cuidador.png")}
                 download="Guia_Protocolos_Cuidador_Diputacion_Cordoba.png"
                 target="_blank"
                 rel="noopener noreferrer"

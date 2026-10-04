@@ -3,12 +3,14 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export const metadata: Metadata = {
   title: "Multiverso Academy — Preparación Inteligente de Oposiciones",
   description: "Academia online de nueva generación de Multiverso IA. Temarios condensados con metodología NotebookLM, estudio sin distracciones y test interactivos de oposiciones.",
   icons: {
-    icon: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: `${basePath}/images/logo.png`,
+    apple: `${basePath}/images/logo.png`,
   },
 };
 
@@ -31,7 +33,11 @@ export default function RootLayout({
         {/* Background Multiverso atmosphere */}
         <div className="nebula nebula-1" aria-hidden="true" />
         <div className="nebula nebula-2" aria-hidden="true" />
-        <div className="bg-watermark" aria-hidden="true" />
+        <div 
+          className="bg-watermark" 
+          style={{ backgroundImage: `url('${basePath}/images/logo.png')` }}
+          aria-hidden="true" 
+        />
 
         <Navbar />
         <main className="flex-1 flex flex-col relative z-10">

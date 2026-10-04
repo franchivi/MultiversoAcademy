@@ -18,3 +18,13 @@ export function calculateOposicionScore(correct: number, incorrect: number, tota
   const rawScoreOverTen = (netScore / total) * 10;
   return Number(Math.min(10, Math.max(0, rawScoreOverTen)).toFixed(2));
 }
+
+export function getAssetPath(path: string): string {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  if (!path) return "";
+  if (path.startsWith("http://") || path.startsWith("https://") || (basePath && path.startsWith(basePath))) {
+    return path;
+  }
+  const cleanPath = path.startsWith("/") ? path : `/${path}`;
+  return `${basePath}${cleanPath}`;
+}
